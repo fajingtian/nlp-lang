@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.CharArrayWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 
 import org.nlpcn.commons.lang.tire.GetWord;
 import org.nlpcn.commons.lang.tire.domain.Forest;
@@ -56,7 +56,7 @@ public enum Converter {
         }
 
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(getClass().getResourceAsStream(mappingFile)), StandardCharsets.UTF_8));
+            BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(getClass().getResourceAsStream(mappingFile)), Charset.forName("UTF-8")));
 
             CharArrayWriter out = new CharArrayWriter();
             String line = null;
@@ -83,7 +83,7 @@ public enum Converter {
         dict = new Forest();
 
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(getClass().getResourceAsStream(mappingFile)), StandardCharsets.UTF_8));
+            BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(getClass().getResourceAsStream(mappingFile)), Charset.forName("UTF-8")));
 
             String line = null;
             while (null != (line = in.readLine())) {
